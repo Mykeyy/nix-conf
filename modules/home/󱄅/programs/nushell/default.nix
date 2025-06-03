@@ -51,7 +51,7 @@
     extraConfig = ''
       #!/bin/nu
       $env.LS_COLORS = (vivid generate rose-pine)
-      
+
       export def --env gc [
           source: string, # Repository to clone (e.g gitlab:invranet/nix-conf or ssh:gitlab:invranet/nix-conf)
           target?: string, # Location to clone to.
