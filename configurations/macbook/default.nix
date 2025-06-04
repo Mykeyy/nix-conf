@@ -62,8 +62,8 @@
     timezone = "Australia/Sydney";
   };
   user = {
-    displayName = "InvraNet";
+    displayName = "Invra";
     initialPassword = "123456";
-    username = "invranet";
+    username = "invra";
   };
 }
