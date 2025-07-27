@@ -32,9 +32,16 @@
       nvidiaSettings = true;
 
       prime = {
+        reverseSync.enable = true;
+        # sync.enable = true;
+
         intelBusId = system.graphics.nvidia.prime.intelBusId or "";
         nvidiaBusId = system.graphics.nvidia.prime.nvidiaBusId or "";
         amdgpuBusId = system.graphics.nvidia.prime.amdgpuBusId or "";
+
+        offload = {
+          enable = lib.mkForce true;
+        };
       };
     };
   };
