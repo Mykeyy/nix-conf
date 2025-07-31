@@ -14,6 +14,7 @@
       enable = system.greeter == "sddm";
       enableHidpi = true;
       wayland.enable = true;
+      background = ./../../../wallpapers/flake.jpg;
     };
   };
   programs = {
