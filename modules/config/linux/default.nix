@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   system,
   pkgs,
   ...
@@ -27,21 +28,17 @@
     amdgpu.opencl.enable = lib.mkForce (builtins.elem "amdgpu" (system.graphics.wanted or [ ]));
 
     nvidia = {
-      open = true;
+      open = false;
       modesetting.enable = true;
       nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       prime = {
-        reverseSync.enable = true;
-        # sync.enable = true;
+        sync.enable = true;
 
         intelBusId = system.graphics.nvidia.prime.intelBusId or "";
         nvidiaBusId = system.graphics.nvidia.prime.nvidiaBusId or "";
         amdgpuBusId = system.graphics.nvidia.prime.amdgpuBusId or "";
-
-        offload = {
-          enable = lib.mkForce true;
-        };
       };
     };
   };
