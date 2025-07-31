@@ -3,9 +3,9 @@
   ...
 }:
 {
-  stylix.targets.zed.enable = false;
+  stylix.targets.zed.enable = enable;
   programs.zed-editor = {
-    enable = false;
+    enable = enable;
 
     extensions = [
       "rose-pine-theme"
@@ -20,7 +20,7 @@
     ];
 
     userSettings = {
-      telemetry.metrics = false;
+      telemetry.metrics = enable;
       ui_font_size = 16;
       tab_size = 2;
       buffer_font_size = 16;

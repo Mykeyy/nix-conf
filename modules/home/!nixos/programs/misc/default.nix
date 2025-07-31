@@ -34,7 +34,7 @@ in
 {
   home.packages = with pkgs; [
     postman
-    parsec-bin
+    #parsec-bin
     pgadmin4-desktopmode
     viu
     chromium
@@ -44,6 +44,7 @@ in
     tree
     unzip
     nil
+    ytui-music
     nixd
     yt-dlp
     tldr

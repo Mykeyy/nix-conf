@@ -13,9 +13,9 @@
       helvum
       easyeffects
       pavucontrol
-      davinci-resolve
+      # davinci-resolve
       r2modman
-      signal-desktop-bin
+      # signal-desktop-bin
       wayvnc
       wget
       jdk21
