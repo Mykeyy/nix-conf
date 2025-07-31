@@ -19,11 +19,10 @@
     graphics = {
       blacklists = [
         "amdgpu"
-        "nvidia"
+        "nouveau"
       ];
       wanted = [
-        "modesetting"
-        "nouveau"  
+        "nvidia"
       ];
 
       nvidia.prime = {
