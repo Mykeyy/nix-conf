@@ -1,9 +1,12 @@
 {
-  config,
-  system,
   pkgs,
+  config,
+  configTOML,
   ...
 }:
+let
+  inherit (configTOML) system;
+in
 {
   imports = [
     ../../modules/wallpaper
@@ -14,8 +17,8 @@
     dock = {
       enable = true;
     }
-    // pkgs.lib.optionalAttrs (system ? dock && system.dock ? entries) {
-      entries = system.dock.entries { inherit pkgs config; };
+    // pkgs.lib.optionalAttrs (configTOML.system ? dock && configTOML.system.dock ? entries) {
+      entries = configTOML.system.dock.entries { inherit pkgs config; };
     };
 
     defaults = {
@@ -78,6 +81,6 @@
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = ../../../../wallpapers/landscape.jpg;
+    wallpaperPath = configTOML.user.wallpaper or ../../../../wallpapers/flake.jpg;
   };
 }

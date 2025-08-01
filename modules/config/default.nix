@@ -1,28 +1,40 @@
 {
-  user,
+  configTOML,
   pkgs,
+  extraOverlays,
+  allowUnfreePredicate,
+  linux,
   ...
 }:
+let
+  inherit (configTOML) user;
+in
 {
-  imports = if pkgs.stdenv.isLinux then [ ./linux ] else [ ./darwin ];
+  imports = if linux then [ ./linux ] else [ ./darwin ];
 
-  nix = {
-    settings = {
-      cores = 8;
-      max-jobs = 1;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      extra-experimental-features = [
-        "pipe-operators"
-      ];
+  nixpkgs = {
+    config.allowUnfreePredicate = allowUnfreePredicate;
+    overlays = extraOverlays;
+  };
 
-      substituters = [ "https://nix-community.cachix.org" ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-    };
+  nix.settings = {
+    cores = 8;
+    max-jobs = 1;
+
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    extra-experimental-features = [
+      "pipe-operators"
+    ];
+
+    substituters = [ "https://nix-community.cachix.org" ];
+
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
   };
 
   users.users = {

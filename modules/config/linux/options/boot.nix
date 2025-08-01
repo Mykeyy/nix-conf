@@ -1,8 +1,11 @@
 {
   pkgs,
-  system,
+  configTOML,
   ...
 }:
+let
+  inherit (configTOML) system;
+in
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -16,7 +19,10 @@
 
     loader = {
       systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      efi = {
+        canTouchEfiVariables = system.boot.canTouchEfiVariables or true;
+        efiSysMountPoint = system.boot.efiDirectory or "/boot/efi";
+      };
     };
 
     kernel.sysctl = {

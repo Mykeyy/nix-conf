@@ -1,10 +1,10 @@
 {
   pkgs,
-  desktop,
+  configTOML,
   ...
 }:
 let
-  enable = desktop.plasma.enable;
+  enable = configTOML.plasma.enable or false;
 in
 {
   home.packages = pkgs.lib.optionals enable (

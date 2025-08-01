@@ -1,6 +1,6 @@
 {
-  user,
   pkgs,
+  configTOML,
   ...
 }:
 {
@@ -9,21 +9,19 @@
   ];
 
   home = {
-    homeDirectory = "/Users/${user.username}";
+    homeDirectory = "/Users/${configTOML.user.username}";
     packages = with pkgs; [
-      jankyborders
-      sketchybar
-      alt-tab-macos
-      raycast
-      blender
-      linearmouse
-      obs-studio
-      steam
-      betterdisplay
-      pika
-      tart
       utm
-      teams
+      tart
+      pika
+      steam
+      raycast
+      obs-studio
+      sketchybar
+      linearmouse
+      jankyborders
+      alt-tab-macos
+      betterdisplay
     ];
 
     file.".hushlogin".text = "";

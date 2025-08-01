@@ -1,10 +1,13 @@
 {
-  user,
+  configTOML,
   ...
 }:
+let
+  inherit (configTOML) user;
+in
 {
-  users.users.${user.username} = {
-    inherit (user) initialPassword;
+  users.users.${configTOML.user.username} = {
+    inherit (configTOML.user) initialPassword;
     isNormalUser = true;
     extraGroups = [
       "networkmanager"

@@ -17,6 +17,5 @@
     yt-dlp
     tldr
     yazi
-    remmina
   ];
 }

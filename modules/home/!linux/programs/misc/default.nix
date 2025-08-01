@@ -1,11 +1,11 @@
 {
-  user,
   pkgs,
+  configTOML,
   ...
 }:
 {
   home = {
-    homeDirectory = "/home/${user.username}";
+    homeDirectory = "/home/${configTOML.user.username}";
     packages = with pkgs; [
       vlc
       gimp3
@@ -20,7 +20,6 @@
       wget
       jdk21
       libreoffice-qt-fresh
-      remmina
 
       wineWowPackages.waylandFull
       winetricks
