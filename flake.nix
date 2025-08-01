@@ -156,12 +156,30 @@
                 ];
               };
               formatter = nixfmt-tree;
+
+              devShells.default = unstable.mkShell {
+                buildInputs = with pkgs; [
+                  # Rust tools
+                  cargo
+                  rustfmt
+                  rust-analyzer
+                  
+                  # Nix tools
+                  nixd
+                  nil
+
+                  # Zig tools
+                  zig
+                  zls
+
+                  # Swift
+                  swift
+                  swiftformat
+                ];
+              };
             }
           ))
         ) (builtins.mapAttrs (name: _: import ./configurations/${name}) (builtins.readDir ./configurations))
       )
-    ))
-    // {
-      custils = import ./utils { inherit (nixpkgs) lib; };
-    };
+    ));
 }

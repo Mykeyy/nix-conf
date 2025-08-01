@@ -9,10 +9,6 @@
     ./zoxide
   ];
 
-  home.packages = with pkgs; [
-    vivid
-  ];
-
   programs.nushell = {
     enable = true;
 
@@ -49,7 +45,7 @@
 
     extraConfig = ''
       #!/bin/nu
-      $env.LS_COLORS = (vivid generate rose-pine)
+      $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate rose-pine)
 
       export def --env gc [
         source: string, # Repository to clone (e.g gitlab:invranet/nix-conf or ssh:gitlab:invranet/nix-conf)
@@ -108,13 +104,13 @@
       }
 
       if not ("x" in $env) {
-        fastfetch
+        ${pkgs.fastfetch}/bin/fastfetch
       }
 
       $env.x = true
 
       mkdir ($nu.data-dir | path join "vendor/autoload")
-      starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+      ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
     '';
   };
 }
