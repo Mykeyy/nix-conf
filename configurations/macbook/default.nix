@@ -7,12 +7,12 @@
   development = {
     git = {
       defaultBranch = "main";
-      email = "identificationsucks@gmail.com";
+      email = "mykey@mykeyy.tech";
       types = [
         "GitLab"
         "GitHub"
       ];
-      username = "Invra";
+      username = "mykeyy";
     };
   };
   system = {
@@ -38,12 +38,12 @@
           { path = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
         ];
     };
-    hostname = "NixOS";
-    timezone = "Australia/Sydney";
+    hostname = "Mykey";
+    timezone = "Asia/Manila";
   };
   user = {
-    displayName = "Invra";
+    displayName = "Mykey";
     initialPassword = "123456";
-    username = "invra";
+    username = "mykeyy";
   };
 }
