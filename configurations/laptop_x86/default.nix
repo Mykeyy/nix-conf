@@ -7,12 +7,12 @@
   development = {
     git = {
       defaultBranch = "main";
-      email = "identificationsucks@gmail.com";
+      email = "";
       types = [
         "GitLab"
         "GitHub"
       ];
-      username = "Invra";
+      username = "";
     };
   };
   system = {
@@ -22,22 +22,23 @@
       autohide = true;
       orientation = "right";
     };
+
+    # "amdgpu" "nvidia" "intel"
     graphics = {
       blacklists = [
-        "nouveau"
+        ""
       ];
       wanted = [
         "modesetting"
-        "nvidia"
       ];
 
-      nvidia.prime = {
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
+      # nvidia.prime = {
+      #   intelBusId = "PCI:0:2:0";
+      #   nvidiaBusId = "PCI:1:0:0";
+      # };
     };
-    greeter = "gdm";
-    hostname = "NixOS";
+    greeter = ""; # gdm, sddm
+    hostname = "";
     interfaces = { };
     kernelParams = [
       "intel_iommu=on"
@@ -58,11 +59,11 @@
         enable = true;
       };
     };
-    timezone = "Australia/Sydney";
+    timezone = "";
   };
   user = {
-    displayName = "Invra";
-    initialPassword = "123456";
-    username = "invra";
+    displayName = "";
+    initialPassword = "";
+    username = "";
   };
 }
